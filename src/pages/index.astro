@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+	{
+		title: "Experiencia y profesionalismo",
+		description: "Nuestra empresa cuenta con años de experiencia en el sector de mudanzas, garantizando un servicio eficiente y seguro.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 15h-2V3h2m-4 0H9v12H5l7 7l7-7h-4V3Z"/></svg>'
+	},
+	{
+		title: "Equipamiento y recursos",
+		description: "Contamos con vehículos especializados y equipo de protección para asegurar la integridad de tus pertenencias durante el traslado.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 8v11h6v-2h8v2h6V8l-6-6H8L2 8m15.5 0L14 4.5V8h3.5M6.5 8L10 4.5V8H6.5m5.5 2a1.5 1.5 0 0 1 1.5 1.5A1.5 1.5 0 0 1 12 13a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 10Z"/></svg>'
+	},
+	{
+		title: "Personal capacitado",
+		description: "Nuestro equipo está formado por profesionales entrenados para manejar tus pertenencias con cuidado y eficiencia.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18c-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18c.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15L6.04 7.5L12 10.85l5.96-3.35L12 4.15Z"/></svg>'
+	},
+	{
+		title: "Precios competitivos y personalizados",
+		description: "Adaptamos nuestros servicios y precios a las necesidades específicas de cada cliente, garantizando un valor excelente por el servicio ofrecido.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 16H5V5h14v14m-4-4h-4v-2h4v-2h-4V9h4V7H9v10h6v-2Z"/></svg>'
+	}
+];
+---
+
+<Layout 
+	title="Mudanzas Stilo - Servicio Profesional de Mudanzas"
+	description="Ofrecemos servicios profesionales de mudanzas residenciales y comerciales. Embalaje profesional y almacenamiento temporal disponible. ¡Contactanos para un presupuesto gratuito!">
+	<Header />
+	
+	<main>
+		<section class="hero">
+			<div class="hero-content">
+				<h1>Mudanzas a todo el país</h1>
+				<p>Servicio profesional y confiable para hacer tu mudanza más fácil</p>
+				<a href="#contacto" class="cta-button">Solicitar Presupuesto</a>
+			</div>
+		</section>
+
+		<section id="servicios" class="services">
+			<h2>Nuestros Servicios</h2>
+			<div class="services-grid">
+				{services.map(service => (
+					<ServiceCard 
+						title={service.title}
+						description={service.description}
+						icon={service.icon}
+					/>
+				))}
+			</div>
+		</section>
+
+		<section id="nosotros" class="about">
+			<h2>¿Por Qué Elegirnos?</h2>
+			<div class="features">
+				<div class="feature">
+					<h3>Experiencia</h3>
+					<p>Más de 10 años en el mercado nos respaldan</p>
+				</div>
+				<div class="feature">
+					<h3>Profesionalismo</h3>
+					<p>Personal capacitado y comprometido</p>
+				</div>
+				<div class="feature">
+            <h3>Adaptabilidad</h3>
+            <p>Soluciones personalizadas para cada cliente</p>
+        </div>
+			</div>
+		</section>
+
+		<section id="contacto" class="contact">
+			<h2>Contactanos</h2>
+			<p>Solicita tu presupuesto sin compromiso.</p>
+			<div class="contact-info">
+				<p>📞 Teléfono: (54) 3416652004</p>
+				<p>📧 Mail: mudanzastilo@gmail.com</p>
+				<p>📍 Dirección: Ayacucho 3691, Rosario</p>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2024 Mudanzas Stilo. Todos los derechos reservados.</p>
+	</footer>
+</Layout>
+
+<style>
+	main {
+		width: 100%;
+	}
+
+	.hero {
+		background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.9)), url('/hero-bg.jpg');
+		background-size: cover;
+		background-position: center;
+		color: white;
+		padding: 6rem 1rem;
+		text-align: center;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero h1 {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.hero p {
+		font-size: 1.25rem;
+		margin-bottom: 2rem;
+	}
+
+	.cta-button {
+		display: inline-block;
+		background: white;
+		color: var(--primary);
+		padding: 1rem 2rem;
+		border-radius: 9999px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.3s ease;
+	}
+
+	.cta-button:hover {
+		transform: scale(1.05);
+	}
+
+	section {
+		padding: 4rem 1rem;
+	}
+
+	.services, .about, .contact {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	h2 {
+		text-align: center;
+		color: var(--secondary);
+		margin-bottom: 3rem;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		padding: 0 1rem;
+	}
+
+	.features {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 2rem;
+		text-align: center;
+	}
+
+	.feature h3 {
+		color: var(--primary);
+		margin-bottom: 0.5rem;
+	}
+
+	.contact {
+		text-align: center;
+	}
+
+	.contact-info {
+		margin-top: 2rem;
+	}
+
+	footer {
+		background: var(--secondary);
+		color: white;
+		text-align: center;
+		padding: 2rem;
+		margin-top: 4rem;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

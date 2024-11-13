@@ -1,0 +1,51 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="service-card">
+	<div class="icon" set:html={icon}></div>
+	<h3>{title}</h3>
+	<p>{description}</p>
+</div>
+
+<style>
+	.service-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 8px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		transition: transform 0.3s ease;
+		text-align: center;
+	}
+
+	.service-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.icon {
+		color: var(--primary);
+		margin-bottom: 1rem;
+	}
+
+	.icon svg {
+		width: 48px;
+		height: 48px;
+	}
+
+	h3 {
+		margin: 0 0 1rem 0;
+		color: var(--secondary);
+	}
+
+	p {
+		margin: 0;
+		color: #64748b;
+		line-height: 1.6;
+	}
+</style>
