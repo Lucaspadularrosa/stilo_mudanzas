@@ -11,6 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@example/basics": "file:",
     "astro": "^4.15.3"
   }
 }
